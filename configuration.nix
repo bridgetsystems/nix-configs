@@ -11,12 +11,16 @@
       ./nvidia-470.nix
     ];
   
+  # Enable non-free packages.
   nixpkgs.config.allowUnfree = true;
+  # Experimental Nix features (commands and flakes).
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  
+  # Use the ZFS filesystem.
   boot.supportedFilesystems = [ "zfs" ];
   boot.initrd.luks.devices = {
   root = {
@@ -29,7 +33,7 @@
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-  networking.hostId = "795c2c22";  
+  networking.hostId = "795c2c22";  # Networking hostId for ZFS.
 
   # Set your time zone.
   time.timeZone = "Europe/Bucharest";
@@ -55,7 +59,7 @@
     LC_PAPER = "en_GB.UTF-8";
     LC_TELEPHONE = "en_GB.UTF-8";
     LC_TIME = "en_GB.UTF-8";
-  };
+  }; # locale go brrr
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
@@ -63,12 +67,16 @@
   # Enable the KDE Plasma Desktop Environment.
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;  
+  # Exclude the Elisa music player from the packages installed alongisde Plasma.
   environment.plasma5.excludePackages = with pkgs.libsForQt5; [
    elisa
   ];
+  
+  # Autologin (kinda sussy).
   services.xserver.displayManager.autoLogin.enable = true;
   services.xserver.displayManager.autoLogin.user = "bridget";
  
+  # Enables flatpak.
   services.flatpak.enable = true;
  
   # Configure keymap in X11
@@ -90,10 +98,10 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bridget = {
-    isNormalUser = true;
-    extraGroups = [ "wheel" ];
-    description = "Bridget";
-    shell = pkgs.fish;
+    isNormalUser = true; 
+    extraGroups = [ "wheel" ]; # sudo
+    description = "Bridget Steele";
+    shell = pkgs.fish; # i <3 fish nya~
     packages = with pkgs; [
       btop
       kate
@@ -132,6 +140,7 @@
       p7zip
       birdtray
       whatsapp-for-linux
+      nerdfonts
     ];
   };  
 
@@ -152,10 +161,10 @@
   networking.firewall = { 
     enable = false;
     allowedTCPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
+      { from = 1714; to = 1764; } # ports for KDE Connect
     ];  
     allowedUDPPortRanges = [ 
-      { from = 1714; to = 1764; } # KDE Connect
+      { from = 1714; to = 1764; } # ditto
     ];  
   };  
 
