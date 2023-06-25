@@ -103,7 +103,7 @@
       libsForQt5.kdeconnect-kde     
       #schildichat-desktop
       firefox
-      discord
+      (discord.override {withOpenASAR = true; withVencord = true;})
       audacious
       prismlauncher-qt5
       vlc
@@ -134,21 +134,6 @@
       whatsapp-for-linux
     ];
   };  
- 
-  nixpkgs.overlays =
-  let
-    myOverlay = self: super: {
-      discord = super.discord.override { withOpenASAR = true; withVencord = true; };
-    };
-  in
-  [ myOverlay ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  #environment.systemPackages = with pkgs; [
-  #   vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #   wget
-  #];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
