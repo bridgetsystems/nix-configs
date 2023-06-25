@@ -103,7 +103,7 @@
       libsForQt5.kdeconnect-kde     
       #schildichat-desktop
       firefox
-      armcord
+      discord
       audacious
       prismlauncher-qt5
       vlc
@@ -134,6 +134,14 @@
       whatsapp-for-linux
     ];
   };  
+ 
+  nixpkgs.overlays =
+  let
+    myOverlay = self: super: {
+      discord = super.discord.override { withOpenASAR = true; withVencord = true; };
+    };
+  in
+  [ myOverlay ];
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
