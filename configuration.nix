@@ -98,7 +98,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.bridget = {
-    isNormalUser = true; 
+    isNormalUser = true;
     extraGroups = [ "wheel" ]; # sudo
     description = "Bridget Steele";
     shell = pkgs.fish; # i <3 fish nya~
@@ -141,6 +141,7 @@
       birdtray
       whatsapp-for-linux
       nerdfonts
+      okteta
     ];
   };  
 
