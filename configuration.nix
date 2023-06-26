@@ -15,6 +15,8 @@
   nixpkgs.config.allowUnfree = true;
   # Experimental Nix features (commands and flakes).
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  # Allows myself to configure binary caches (i.e use `nix run`)
+  nix.settings.trusted-users = [ "root" "bridget" ];
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
