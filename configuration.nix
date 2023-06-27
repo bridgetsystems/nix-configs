@@ -145,6 +145,7 @@
       nerdfonts
       okteta
       openttd
+      openrct2
     ];
   };  
 
