@@ -96,9 +96,9 @@
   services.xserver.libinput.enable = true;
 
   # Enable the fish shell 
-  programs.fish.enable = true;  
+  programs.fish.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  # Defines a user account.
   users.users.bridget = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # sudo
@@ -144,6 +144,7 @@
       whatsapp-for-linux
       nerdfonts
       okteta
+      openttd
     ];
   };  
 
