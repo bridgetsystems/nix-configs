@@ -146,6 +146,7 @@
       okteta
       openttd
       openrct2
+      katawa-shoujo
     ];
   };  
 
