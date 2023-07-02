@@ -149,6 +149,7 @@
       openrct2
       katawa-shoujo
       plasma-overdose-kde-theme
+      libsForQt5.tokodon
     ];
   };
   # Some programs need SUID wrappers, can be configured further or are
