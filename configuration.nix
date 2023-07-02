@@ -117,7 +117,8 @@
       audacious
       prismlauncher-qt5
       vlc
-      git
+      git # git 
+      gh # ditto but ms
       steam
       kolourpaint
       yt-dlp
@@ -147,9 +148,9 @@
       openttd
       openrct2
       katawa-shoujo
+      plasma-overdose-kde-theme
     ];
-  };  
-
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
