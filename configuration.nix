@@ -6,9 +6,10 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./nvidia-470.nix
+    [
+      ./hardware-configuration.nix # Include the results of the hardware scan.
+      ./nvidia-470.nix # novideo bad!!!11!!11!!!
+      ./cachix.nix # i am not using gentoo again bruh
     ];
   
   # Enable non-free packages.
@@ -121,7 +122,6 @@
       btop
       kate
       hyfetch
-      pkgs.nur.repos.baduhai.klassy #see flake.nix
       keepassxc
       libsForQt5.kdeconnect-kde     
       #schildichat-desktop
