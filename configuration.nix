@@ -31,6 +31,9 @@
     };
   };  
 
+  # Enable zram
+  zramSwap.enable = true;
+
   networking.hostName = "shitpad"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
