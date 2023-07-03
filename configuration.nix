@@ -15,7 +15,7 @@
   nixpkgs.config.allowUnfree = true;
   # Experimental Nix features (commands and flakes).
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  # Allows myself to configure binary caches (i.e use `nix run`)
+  # Allows myself to configure binary caches (i.e use `nix run`).
   nix.settings.trusted-users = [ "root" "bridget" ];
 
   # Use the systemd-boot EFI boot loader.
@@ -31,9 +31,10 @@
     };
   };  
 
-  # Enable automatic garbage collection.
+  # Enable automatic store optimization.
   nix.settings.auto-optimise-store = true;
-
+  
+  # Enables automatic garbage collection.
   nix.gc = {
     automatic = true;
     dates = "weekly";
@@ -43,7 +44,7 @@
   # Enable zram.
   zramSwap.enable = true;
 
-  networking.hostName = "shitpad"; # Define your hostname.
+  networking.hostName = "sylveon"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
