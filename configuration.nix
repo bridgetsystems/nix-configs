@@ -31,7 +31,16 @@
     };
   };  
 
-  # Enable zram
+  # Enable automatic garbage collection.
+  nix.settings.auto-optimise-store = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 8d";
+  };
+
+  # Enable zram.
   zramSwap.enable = true;
 
   networking.hostName = "shitpad"; # Define your hostname.
