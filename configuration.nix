@@ -9,6 +9,7 @@
     [
       ./hardware-configuration.nix # Include the results of the hardware scan.
       ./nvidia-470.nix # novideo bad!!!11!!11!!!
+      ./upgrade-diff.nix # exactly what it says on the tin, taken from https://github.com/luishfonseca/dotfiles/blob/main/modules/upgrade-diff.nix
       ./cachix.nix # i am not using gentoo again bruh
     ];
   
@@ -128,6 +129,7 @@
       firefox
       (discord.override {withOpenASAR = true; withVencord = true;})
       audacious
+      audacious-plugins
       prismlauncher-qt5
       vlc
       git # git 
@@ -163,6 +165,11 @@
       katawa-shoujo
       plasma-overdose-kde-theme
       libsForQt5.tokodon
+      plasma-hud
+      #catppuccin-kde
+      #libsForQt5.qtcurve
+      #libsForQt5.qtstyleplugin-kvantum
+      vivaldi
     ];
   };
   # Some programs need SUID wrappers, can be configured further or are
